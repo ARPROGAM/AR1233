@@ -1,39 +1,11 @@
 body {
     margin: 0;
+    padding: 0;
     overflow: hidden;
-    font-family: Arial, sans-serif;
+    background-color: #000;
 }
 
-canvas {
-    display: block;
-}
-
-#controls {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    z-index: 100;
-    background: rgba(255, 255, 255, 0.7);
-    padding: 10px;
-    border-radius: 5px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-}
-
-#controls button {
-    margin: 5px;
-    padding: 10px;
-    border: none;
-    background-color: #333;
-    color: white;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 14px;
-}
-
-#controls button:hover {
-    background-color: #555;
-}
-
-#controls input[type="file"] {
-    margin: 5px;
+#ar-container {
+    width: 100vw;
+    height: 100vh;
 }
