@@ -33,3 +33,7 @@ canvas {
 #controls button:hover {
     background-color: #555;
 }
+
+#controls input[type="file"] {
+    margin: 5px;
+}
