@@ -1,4 +1,4 @@
-let scene, camera, renderer, model;
+let scene, camera, renderer, model, uploadedTexture = null;
 
 // Initialize the scene
 function init() {
@@ -56,6 +56,35 @@ function changeDoorTexture(texturePath) {
         });
     });
 }
+
+// Function to apply uploaded texture
+function applyUploadedTexture() {
+    if (uploadedTexture) {
+        model.traverse(function(node) {
+            if (node.isMesh) {
+                if (node.name === 'Door') { // Replace 'Door' with your actual door mesh name
+                    node.material.map = uploadedTexture;
+                    node.material.needsUpdate = true;
+                }
+            }
+        });
+    } else {
+        alert('No texture uploaded.');
+    }
+}
+
+// Handle texture file input
+document.getElementById('textureInput').addEventListener('change', function(event) {
+    const file = event.target.files[0];
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            const textureLoader = new THREE.TextureLoader();
+            uploadedTexture = textureLoader.load(e.target.result);
+        };
+        reader.readAsDataURL(file);
+    }
+});
 
 // Call init to set everything up
 init();
